@@ -10,12 +10,15 @@
 $("button").on("click", function () {
     //Taking the value giving to that button in the HTML
     var typeOfGif = $(this).attr("data-science")
-    console.log(typeOfGif);
+    console.log(typeOfGif)
     //Add the link needed for calling the API
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    typeOfGif + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10"
+    typeOfGif + "&api_key=EGOEsx7oEvGNmXEIBBfiQzAhbKu7dngF&limit=10"
 
-    //Using Jquery to call the Apo
+    //Clear the results
+    //Make the user Input its data
+
+    //Using Jquery to call the Api
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -30,7 +33,7 @@ $("button").on("click", function () {
             //Create a For loop that will create results
             for (var i = 0; i < results.length; i++) {
                 //Create a div that will contain the gif
-                var gifDiv = $("<div class=col-1>");
+                var gifDiv = $("<div class=col-12>");
                 //Show the rating of the gif
                 var rating = results[i].rating;
                 //Add the result or value of the rating in our HTML 
