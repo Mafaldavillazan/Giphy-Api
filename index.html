@@ -22,59 +22,65 @@
                 <p class="card-text allign">Enjoy some GIFS related to the amazing world of science.</p>
             </div>
 
+            <!-- form with user input-->
             <div class="row">
-                <div class="col-3"></div>
-                <div class="col-6">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Recipient's username"
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-                        </div>
+                <div class="col-1"></div>
+
+                <form id="gif-form">
+                    <label for="gif-input">Add a Gif!</label>
+                    <input type="text" id="gif-input"><br>
+
+                    <!-- Button triggers new movie to be added -->
+                    <input id="add-gif" type="submit" value="GO!">
+                </form>
+
+                <br>
+
+                <div class="col-1">
+                    <!-- Buttons from the user-->
+
+                    <div class="row">
+                        <div id="userButtons" class="col-2"></div>
                     </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-12">
-                        <p class="card-text allign">Enjoy some GIFS related to the amazing world of science.</p>
-                </div>
-            </div>
-            <div class="row">
-                    <div class="space">
-                    </div>
                 </div>
 
 
-            <div class="row" id="buttons">
 
-                <div class="col-2">
-                    <button data-science="astrology" type="button" class="btn btn-secondary">Astrology</button>
-                </div>
-                <div class="col-2">
-                    <button data-science="math" type="button" class="btn btn-secondary">Math</button>
-                </div>
-                <div class="col-2">
-                    <button data-science="chemistry" type="button" class="btn btn-secondary">Chemistry</button>
-                </div>
-                <div class="col-2">
-                    <button data-science="physics" type="button" class="btn btn-secondary">Physics</button>
-                </div>
-                <div class="col-2">
-                    <button data-science="astronomy" type="button" class="btn btn-secondary">Astronomy</button>
-                </div>
-                <div class="col-2">
-                    <button data-science="geology" type="button" class="btn btn-secondary">Geology</button>
-                </div>
+
             </div>
         </div>
-
     </div>
 
 
 
 
+    <!-- Buttons that are predefined-->
     <div class="row">
+        <div class="col-2">
+            <button data-science="astrology" type="button" class="btn btn-secondary definedButton">Astrology</button>
+        </div>
+        <div class="col-2">
+            <button data-science="math" type="button" class="btn btn-secondary definedButton">Math</button>
+        </div>
+        <div class="col-2">
+            <button data-science="chemistry" type="button" class="btn btn-secondary definedButton">Chemistry</button>
+        </div>
+        <div class="col-2">
+            <button data-science="physics" type="button" class="btn btn-secondary definedButton">Physics</button>
+        </div>
+        <div class="col-2">
+            <button data-science="astronomy" type="button" class="btn btn-secondary definedButton">Astronomy</button>
+        </div>
+        <div class="col-2">
+            <button data-science="geology" type="button" class="btn btn-secondary definedButton">Geology</button>
+        </div>
+    </div>
+
+    <br>
+    <!-- Images from the gif-->
+    <div class="row">
+        <div class="col-2"></div>
         <div id="images">
 
         </div>

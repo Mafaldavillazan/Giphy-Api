@@ -1,19 +1,30 @@
-//Add the information of bootstrap/ Jquery and API
-//Code of Api for FILMS of adding buttons follow the same path
-//Get first button to work
-// Add the adding button with the categories needed
 
-//Add the function for on click for the buttons
-//Can we make the code better with when the user clicks on any button take that info
+//TO DOS
+//
 
-//MOON
-$("button").on("click", function () {
+//when the document is ready...
+
+
+
+//USER INPUTS
+
+
+//create an array to store the user input
+var arrUserGif = []
+console.log(arrUserGif)
+
+
+//BUTTONS PRELOAD
+//When any of the buttons preload is clicked ...
+
+$(".definedButton").on("click", function () {
+
     //Taking the value giving to that button in the HTML
     var typeOfGif = $(this).attr("data-science")
     console.log(typeOfGif)
     //Add the link needed for calling the API
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    typeOfGif + "&api_key=EGOEsx7oEvGNmXEIBBfiQzAhbKu7dngF&limit=10"
+        typeOfGif + "&api_key=EGOEsx7oEvGNmXEIBBfiQzAhbKu7dngF&limit=10"
 
     //Clear the results
     //Make the user Input its data
@@ -33,7 +44,7 @@ $("button").on("click", function () {
             //Create a For loop that will create results
             for (var i = 0; i < results.length; i++) {
                 //Create a div that will contain the gif
-                var gifDiv = $("<div class=col-12>");
+                var gifDiv = $("<div class=col-3>");
                 //Show the rating of the gif
                 var rating = results[i].rating;
                 //Add the result or value of the rating in our HTML 
@@ -50,4 +61,56 @@ $("button").on("click", function () {
             }
         });
 
+})
+
+
+//USER BUTTONS
+//Create a function that displays the user info in a button
+
+
+//Create a function that will display the gifs
+function displayUserGif() {
+    var gif = $(this).attr("data-gif");
+    var queryURLuser = "https://api.giphy.com/v1/gifs/search?q=" +
+        userGif + "&api_key=EGOEsx7oEvGNmXEIBBfiQzAhbKu7dngF&limit=10";
+    //Using Jquery to call the Api
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+
+        //Create a div that will contain the gif
+        var gifDivUser = $("<div class=col-3>");
+        //Show the rating of the gif
+        var rating = results[i].rating;
+        //Add the result or value of the rating in our HTML 
+        var ratingText = $("<p>").text("Rating: " + rating);
+
+        //Create and image that has the source of that particular url
+        var gifImg = $("<img>");
+        gifImg.attr("src", results[i].images.fixed_height.url);
+
+        gifDivUser.prepend(ratingText);
+        gifDivUser.prepend(gifImg);
+
+        $("#images").prepend(gifDiv);
+
+    })
+}
+
+//Export the data the user types and add it to the new button
+$("#add-gif").on("click", function (event) {
+    event.preventDefault();
+
+    // Grab the input from the form
+    var userGifText = $("#gif-input").val().trim();
+    console.log(userGifText)
+    arrUserGif.push(userGifText);
+  
+    //Create user button
+    var $userButton = $("<button>");
+    $userButton.addClass("gif");
+    $userButton.attr("data-gif",userGifText);
+    $userButton.text(userGifText);
+    $("#userButtons").append($userButton);
 })
