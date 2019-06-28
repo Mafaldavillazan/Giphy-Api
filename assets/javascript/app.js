@@ -19,7 +19,7 @@ $(document).ready(function () {
     
         //Add the link needed for calling the API
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-            typeOfGif + "&api_key=EGOEsx7oEvGNmXEIBBfiQzAhbKu7dngF&limit=4"
+            typeOfGif + "&api_key=EGOEsx7oEvGNmXEIBBfiQzAhbKu7dngF&limit=12"
 
         //Clear the results
         //Make the user Input its data
@@ -82,11 +82,13 @@ $(document).ready(function () {
 
     //
     function displayGIF() {
+        //Clear the document when loaded
+        $("#images").empty();
         console.log(this)
         var userGif = $(this).attr("data-gif");
         console.log(this)
         var queryURLuser = "https://api.giphy.com/v1/gifs/search?q=" +
-        userGif + "&api_key=EGOEsx7oEvGNmXEIBBfiQzAhbKu7dngF&limit=4";
+        userGif + "&api_key=EGOEsx7oEvGNmXEIBBfiQzAhbKu7dngF&limit=12";
         //Using Jquery to call the Api
         $.ajax({
             url: queryURLuser,
@@ -96,8 +98,7 @@ $(document).ready(function () {
 
             var results = response.data;
 
-            //Clear the document when loaded
-            $(".gifDisplay").remove()
+            
             //Create a For loop that will create results
             for (var i = 0; i < results.length; i++) {
                 //Create a div that will contain the gif
