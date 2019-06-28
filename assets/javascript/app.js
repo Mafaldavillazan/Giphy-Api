@@ -35,7 +35,7 @@ $(document).ready(function () {
 
                 //Create a a variable of the results that will look into the data
                 var results = response.data;
-
+                $("#images").empty();
                 //Create a For loop that will create results
                 for (var i = 0; i < results.length; i++) {
                     //Create a div that will contain the gif
