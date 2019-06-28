@@ -42,16 +42,20 @@ $(document).ready(function () {
                     var gifDiv = $("<div class=col-2>");
                     //Show the rating of the gif
                     var rating = results[i].rating;
-                    //Add the result or value of the rating in our HTML 
-                    var ratingText = $("<h5 class=card-text allign>").text("Rating: " + rating);
-                    var ratingText = $("<p>").text("Rating: " + rating);
+                    //Show the name of the gif
+                    var title = results[i].title
+                    //Add the result or value of the rating and title in our HTML 
+                    var TitleText = $("<h3 class=card-text allign>").text(title);
+                    var ratingText = $("<h5>").text("Rating: " + rating);
 
                     //Create and image that has the source of that particular url
                     var gifImg = $("<img>");
                     gifImg.attr("src", results[i].images.fixed_height.url);
 
-                    gifDiv.prepend(gifImg);
                     gifDiv.prepend(ratingText);
+                    gifDiv.prepend(gifImg);
+                    gifDiv.prepend(TitleText);
+                    
 
                     $("#images").append(gifDiv);
                 }
@@ -103,10 +107,14 @@ $(document).ready(function () {
             for (var i = 0; i < results.length; i++) {
                 //Create a div that will contain the gif
                 var gifDivUser = $("<div class=col-2 gifDisplay>");
+                //Show the name of the gif
+                var title = results[i].title
                 //Show the rating of the gif
                 var rating = results[i].rating;
-                //Add the result or value of the rating in our HTML 
-                var ratingText = $("<p>").text("Rating: " + rating);
+                ///Add the result or value of the rating and title in our HTML 
+                var TitleText = $("<h3 class=card-text allign>").text(title);
+                var ratingText = $("<h5>").text("Rating: " + rating);
+                
 
                 //Create and image that has the source of that particular url
                 var gifImg = $("<img>");
@@ -114,6 +122,7 @@ $(document).ready(function () {
 
                 gifDivUser.prepend(ratingText);
                 gifDivUser.prepend(gifImg);
+                gifDivUser.prepend(TitleText);
 
                 $("#images").prepend(gifDivUser);
             }
